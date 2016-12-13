@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-slider/paper-slider.html">
 <link rel="import" href="shared-styles.html">
 <dom-module id="salaries-component">
   <template>
@@ -12,6 +13,9 @@
     margin: 0 auto;
     font-size:16px;
     text-align:left;
+  }
+  .horizontal{
+    @apply(--layout-horizontal);
   }
   .row{
     @apply(--layout-horizontal);
@@ -25,6 +29,10 @@
   input{
     width:80px;
   }
+  paper-slider{
+    width:160px;
+  }
+  .btop{border-top:2px solid #000;}
   </style>
   <div><strong>Allocated Expenses</strong></div>
   <div class="row">
@@ -38,15 +46,24 @@
     <div class="col"><strong>Senior Management</strong></div>
     <div class="col"><input type="text"/></div>
     <div class="col">425</div>
-    <div class="col">4</div>
+    <div class="col">
+      <paper-slider min="10" max="200" value="110"></paper-slider>
+    </div>
     <div class="col">4.25</div>
   </div>
   <div class="row">
     <div class="col">All Other Salaries & Benefits</div>
     <div class="col">3049</div>
     <div class="col">1067</div>
-    <div class="col">4</div>
+    <div class="col"><paper-slider min="10" max="200" value="110"></paper-slider></div>
     <div class="col">1982</div>
+  </div>
+  <div class="row btop">
+    <div class="col">Total Salaries</div>
+    <div class="col"><strong>3049</strong></div>
+    <div class="col"><strong>1067</strong></div>
+    <div class="col"></div>
+    <div class="col"><strong>1982</strong></div>
   </div>
   </template>
   <script>
