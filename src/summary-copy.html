@@ -1,0 +1,38 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/google-chart/google-chart.html">
+<link rel="import" href="shared-styles.html">
+<dom-module id="summary-copy">
+  <template>
+    <style include="shared-styles">
+    :host {
+      @apply(--layout);
+      @apply(--layout-vertical);
+    }
+    .step{
+      @apply(--layout-horizontal);
+      @apply(--layout-center-center);
+    }
+    .step_copy{
+      line-height:24px;
+      margin-left:16px;
+      font-size:18px;
+      text-align:left;
+    }
+    </style>
+    <div class="step mTop20">
+      <div class="circle">4</div>
+      <div class="step_copy">In the next section, we use the StoneCastle cost-allocation<br/>methodology to help determine your true cost of funding.</div>
+    </div>
+    <div class="bold mTop20">True Cost of Funds Analysis for First Bank of Niagara</div>
+    <div class="mTop20">Refine the analysis by clicking Salaries or Other Expenses</div>
+    <div class="mTop20">Review and refine the analysis by clicking on Advanced tab below to adjust management salaries and<br/>other costs and allocation assumptions. In the future, we will include additional tool, including trend<br />analysis and peer group benchmarking</div>
+    <div class="mTop20">Call your StoneCastle FICA representative at <strong>866-343-5516</strong> or <strong>help@ficaacount.com</strong> to explore<br/> how we can assist your bank with deposit funding.</div>
+  </template>
+  <script>
+  Polymer({
+  is: 'summary-copy',
+  properties:{}
+  });
+  </script>
+</dom-module>

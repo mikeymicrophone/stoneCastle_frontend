@@ -1,0 +1,81 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/google-chart/google-chart.html">
+<link rel="import" href="shared-styles.html">
+<dom-module id="summary-component">
+  <template>
+    <style include="shared-styles">
+    :host {
+      @apply(--layout);
+      @apply(--layout-vertical);
+      padding: 10px;
+      font-size:16px;
+      text-align:left;
+    }
+    .data{
+      @apply(--layout-horizontal);
+    }
+    .flex{
+      @apply(--layout-flex);
+    }
+    .values{
+      @apply(--layout-horizontal);
+      margin:12px 0px 18px 0px;
+    }
+    .title{
+      @apply(--layout-flex-2);
+      color: var(--app-main-color);
+    }
+    .val{
+      @apply(--layout-flex);
+    }
+    </style>
+    <div><strong>As of June 30, 2016* </strong></div>
+    <div class="data">
+      <div class="flex">
+        <div class="values">
+          <div class="title">Stated Margin</div>
+          <div class="val"><span class="label blue">4.10%</span></div>
+        </div>
+        <div class="values">
+          <div class="title">Adj. Gross Margin</div>
+          <div class="val"><span class="label blue">3.26%</span></div>
+        </div>
+        <div class="values">
+          <div class="title">Interesting Bearing</div>
+          <div class="val"><span class="label blue">1.79%</span></div>
+        </div>
+        <div class="values">
+          <div class="title">Blended Deposit</div>
+          <div class="val"><span class="label blue">1.65%</span></div>
+        </div>
+      </div>
+      <div class="flex">
+        <google-chart
+        id="chart"
+        style="width:260px;height:170px;"
+        type="column"
+        options='{"width":260,"height":170,"legend": "none","vAxis": {"minValue" : 0, "maxValue": 10}}'
+        cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
+        rows='[["Gross Yield", 3.9],["Net Yield", 7.4]]'>
+        </google-chart>
+      </div>
+      <div class="flex">
+        <google-chart
+        id="chart"
+        style="width:260px;height:170px;"
+        type="column"
+        options='{"width":260,"height":170,"legend": "none", "vAxis": {"minValue" : 0, "maxValue": 10}}'
+        cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
+        rows='[["Interest Paid", 2.0],["True Cost of Funds", 5.6]]'>
+        </google-chart>
+      </div>
+    </div>
+  </template>
+  <script>
+  Polymer({
+  is: 'summary-component',
+  properties:{}
+  });
+  </script>
+</dom-module>

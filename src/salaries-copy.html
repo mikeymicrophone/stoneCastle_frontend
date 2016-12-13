@@ -1,0 +1,62 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/google-chart/google-chart.html">
+<link rel="import" href="shared-styles.html">
+<dom-module id="salaries-copy">
+  <template>
+  <style include="shared-styles">
+  :host {
+    @apply(--layout-vertical);
+    @apply(--layout-center);
+    font-size:16px;
+  }
+  .wrapper{
+    @apply(--layout);
+    @apply(--layout-horizontal);
+    @apply(--layout-center);
+    margin: 10px;
+    border-radius: 8px;
+    background-color: #e1e1e1;
+    width:100%;
+  }
+  .chart_wrap{
+    background-color: #fff;
+    padding:10px;
+    margin:10px;
+    border-radius: 8px;
+  }
+  .flex{
+    @apply(--layout-flex);
+  }
+  </style>
+  <div class="mTop20 bold">True Cost of Funds Analysis for First Bank of Niagara</div>
+  <div class="mTop20 wrapper">
+    <div class="flex chart_wrap">
+      <google-chart
+      id="chart"
+      style="width:360px;height:170px;"
+      type="column"
+      options='{"width":360,"height":170,"legend": "none","vAxis": {"minValue" : 0, "maxValue": 10}}'
+      cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
+      rows='[["Gross Yield", 3.9],["Net Yield", 7.4]]'>
+      </google-chart>
+    </div>
+    <div class="flex chart_wrap">
+      <google-chart
+      id="chart"
+      style="width:360px;height:170px;"
+      type="column"
+      options='{"width":360,"height":170,"legend": "none","vAxis": {"minValue" : 0, "maxValue": 10}}'
+      cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
+      rows='[["Gross Yield", 3.9],["Net Yield", 7.4]]'>
+      </google-chart>
+    </div>
+  </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'salaries-copy',
+      properties:{}
+    });
+  </script>
+</dom-module>
