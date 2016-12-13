@@ -1,11 +1,13 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.html",
+  "shell": "src/stone-castle.html",
   "fragments": [
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view3.html",
-    "src/my-view404.html"
+    "src/expenses-components.html",
+    "src/main-page.html",
+    "src/salaries-component.html",
+    "src/salaries-copy.html",
+    "src/summary-component.html",
+    "src/summary-copy.html"
   ],
   "sourceGlobs": [
    "src/**/*",
