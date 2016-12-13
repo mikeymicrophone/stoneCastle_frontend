@@ -2,7 +2,7 @@
   "entrypoint": "index.html",
   "shell": "src/stone-castle.html",
   "fragments": [
-    "src/expenses-components.html",
+    "src/expenses-component.html",
     "src/main-page.html",
     "src/salaries-component.html",
     "src/salaries-copy.html",
