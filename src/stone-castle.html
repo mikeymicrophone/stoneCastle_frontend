@@ -1,13 +1,10 @@
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
-<link rel="import" href="../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
-<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
-<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="my-icons.html">
 <link rel="import" href="main-page.html">
+<link rel="import" href="user-header.html">
+<link rel="import" href="steps-page.html">
 <dom-module id="stone-castle">
   <template>
     <style>
@@ -15,37 +12,31 @@
       --app-main-color: #28628e;
       display: block;
     }
-    app-header {
-      color: #fff;
-      background-color: var(--app-main-color);
-    }
-    app-header paper-icon-button {
-      --paper-icon-button-ink-color: white;
-    }
-    paper-button.login{
-      padding:4px !important;
-      margin:5px !important;
-      background-color: #fff;
-      color:var(--app-main-color);
-      font-size: 16px;
-      font-weight: bold;
-    }
     </style>
-    <app-header-layout>
-      <app-header fixed condenses effects="waterfall">
-        <app-toolbar>
-          <div>StoneCastle</div>
-          <div condensed-title></div>
-          <paper-button raised class="login">Login</paper-button>
-        </app-toolbar>
-      </app-header>
-      <main-page></main-page>
-    </app-header-layout>
+    <user-header>
+      <template is="dom-if" if="{{!mainPage}}">
+        <steps-page></steps-page>
+      </template>
+      <template is="dom-if" if="{{mainPage}}">
+        <main-page></main-page>
+      </template>
+    </user-header>
   </template>
   <script>
     Polymer({
     is: 'stone-castle',
-    properties: {},
+    properties: {
+      mainPage: {
+        type: Boolean,
+        value: false
+      }
+    },
+    listeners: {
+      'change-page': '_changePage'
+    },
+    _changePage:function(){
+      this.mainPage = true;
+    },
     observers: [],
     });
   </script>

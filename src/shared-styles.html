@@ -49,10 +49,28 @@
       text-align:center;
       color: var(--app-main-color);
     }
+    .horizontal{
+      @apply(--layout-horizontal);
+    }
     .step{
+      width:600px;
       padding:10px 0px 20px 0px;
       @apply(--layout-horizontal);
-      @apply(--layout-center-center);
+    }
+    .step_copy{
+      line-height:24px;
+      margin-left:16px;
+      font-size:18px;
+      text-align:left;
+    }
+    paper-button.white{
+      padding:4px !important;
+      margin:5px !important;
+      text-transform: none;
+      background-color: #fff;
+      color:var(--app-main-color);
+      font-size: 16px;
+      border:1px solid var(--app-main-color);
     }
     </style>
   </template>

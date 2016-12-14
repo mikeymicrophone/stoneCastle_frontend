@@ -1,0 +1,47 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="shared-styles.html">
+<dom-module id="user-header">
+  <template>
+    <style include="shared-styles">
+    :host {
+      display: block;
+      margin: 0 auto;
+    }
+    app-header {
+      color: #fff;
+      background-color: var(--app-main-color);
+    }
+    paper-button.login{
+      padding:4px !important;
+      margin:5px !important;
+      text-transform: none;
+      background-color: #fff;
+      color:var(--app-main-color);
+      font-size: 16px;
+      font-weight: bold;
+    }
+    </style>
+    <app-header-layout>
+      <app-header fixed condenses effects="waterfall">
+        <app-toolbar>
+          <div>StoneCastle</div>
+          <div condensed-title></div>
+          <paper-button raised class="login">Logout</paper-button>
+        </app-toolbar>
+      </app-header>
+      <content></content>
+    </app-header-layout>
+  </template>
+  <script>
+    Polymer({
+    is: 'user-header',
+    properties:{}
+    });
+  </script>
+</dom-module>
