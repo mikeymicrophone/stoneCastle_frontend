@@ -6,8 +6,8 @@
 <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="shared-styles.html">
-<dom-module id="user-header">
-  <template>
+<dom-module id="user-page">
+    <template>
     <style include="shared-styles">
     :host {
       display: block;
@@ -17,22 +17,13 @@
       color: #fff;
       background-color: var(--app-main-color);
     }
-    paper-button.login{
-      padding:4px !important;
-      margin:5px !important;
-      text-transform: none;
-      background-color: #fff;
-      color:var(--app-main-color);
-      font-size: 16px;
-      font-weight: bold;
-    }
     </style>
     <app-header-layout>
       <app-header fixed condenses effects="waterfall">
         <app-toolbar>
           <div>StoneCastle</div>
           <div condensed-title></div>
-          <paper-button raised class="login">Logout</paper-button>
+          <paper-button raised on-tap="_logout" class="white">Logout</paper-button>
         </app-toolbar>
       </app-header>
       <content></content>
@@ -40,8 +31,11 @@
   </template>
   <script>
     Polymer({
-    is: 'user-header',
-    properties:{}
+      is: 'user-page',
+      properties: {},
+      _logout: function() {
+        this.fire('logout-click');
+      }
     });
   </script>
 </dom-module>

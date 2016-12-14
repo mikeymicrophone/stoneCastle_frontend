@@ -5,67 +5,67 @@
 <link rel="import" href="shared-styles.html">
 <dom-module id="salaries-component">
   <template>
-  <style include="shared-styles">
-  :host {
-    @apply(--layout);
-    @apply(--layout-vertical);
-    padding: 10px;
-    margin: 0 auto;
-    text-align:left;
-  }
-  .row{
-    @apply(--layout-horizontal);
-    margin:8px 0px 8px 0px;
-  }
-  .lastrow{
-    padding-top:8px
-  }
-  .col{
-    font-size:12px;
-    @apply(--layout-flex);
-    text-align:right;
-  }
-  input{
-    width:80px;
-  }
-  paper-slider{
-    width:160px;
-  }
-  .btop{
-    border-top:2px solid #000;
-  }
-  </style>
-  <div><strong>Allocated Expenses</strong></div>
-  <div class="row">
-    <div class="col"></div>
-    <div class="col">Total Expenses</div>
-    <div class="col">Lending & Investing</div>
-    <div class="col"></div>
-    <div class="col">Deposit Funding</div>
-  </div>
-  <div class="row">
-    <div class="col"><strong>Senior Management</strong></div>
-    <div class="col"><input type="text"/></div>
-    <div class="col">425</div>
-    <div class="col">
-      <paper-slider min="10" max="200" value="110"></paper-slider>
+    <style include="shared-styles">
+    :host {
+      @apply(--layout);
+      @apply(--layout-vertical);
+      padding: 10px;
+      margin: 0 auto;
+      text-align:left;
+    }
+    .row{
+      @apply(--layout-horizontal);
+      margin:8px 0px 8px 0px;
+    }
+    .lastrow{
+      padding-top:8px
+    }
+    .col{
+      font-size:12px;
+      @apply(--layout-flex);
+      text-align:right;
+    }
+    input{
+      width:80px;
+    }
+    paper-slider{
+      width:160px;
+    }
+    .btop{
+      border-top:2px solid #000;
+    }
+    </style>
+    <div><strong>Allocated Expenses</strong></div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">Total Expenses</div>
+      <div class="col">Lending & Investing</div>
+      <div class="col"></div>
+      <div class="col">Deposit Funding</div>
     </div>
-    <div class="col">4.25</div>
-  </div>
-  <div class="row">
-    <div class="col">All Other Salaries & Benefits</div>
-    <div class="col">3049</div>
-    <div class="col">1067</div>
-    <div class="col"><paper-slider min="10" max="200" value="110"></paper-slider></div>
-    <div class="col">1982</div>
-  </div>
-  <div class="row lastrow btop mTop20">
-    <div class="col">Total Salaries</div>
-    <div class="col"><strong>3049</strong></div>
-    <div class="col"><strong>1067</strong></div>
-    <div class="col"></div>
-    <div class="col"><strong>1982</strong></div>
-  </div>
+    <div class="row">
+      <div class="col"><strong>Senior Management</strong></div>
+      <div class="col"><input type="text"/></div>
+      <div class="col">425</div>
+      <div class="col">
+        <paper-slider min="10" max="200" value="110"></paper-slider>
+      </div>
+      <div class="col">4.25</div>
+    </div>
+    <div class="row">
+      <div class="col">All Other Salaries & Benefits</div>
+      <div class="col">3049</div>
+      <div class="col">1067</div>
+      <div class="col"><paper-slider min="10" max="200" value="110"></paper-slider></div>
+      <div class="col">1982</div>
+    </div>
+    <div class="row lastrow btop mTop20">
+      <div class="col">Total Salaries</div>
+      <div class="col"><strong>3049</strong></div>
+      <div class="col"><strong>1067</strong></div>
+      <div class="col"></div>
+      <div class="col"><strong>1982</strong></div>
+    </div>
   </template>
   <script>
     Polymer({

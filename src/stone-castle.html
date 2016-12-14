@@ -1,9 +1,9 @@
-
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="my-icons.html">
 <link rel="import" href="main-page.html">
-<link rel="import" href="user-header.html">
+<link rel="import" href="guest-page.html">
+<link rel="import" href="user-page.html">
 <link rel="import" href="steps-page.html">
 <dom-module id="stone-castle">
   <template>
@@ -13,31 +13,48 @@
       display: block;
     }
     </style>
-    <user-header>
-      <template is="dom-if" if="{{!mainPage}}">
-        <steps-page></steps-page>
-      </template>
-      <template is="dom-if" if="{{mainPage}}">
-        <main-page></main-page>
-      </template>
-    </user-header>
-  </template>
-  <script>
-    Polymer({
-    is: 'stone-castle',
-    properties: {
-      mainPage: {
-        type: Boolean,
-        value: false
-      }
-    },
-    listeners: {
-      'change-page': '_changePage'
-    },
-    _changePage:function(){
-      this.mainPage = true;
-    },
-    observers: [],
-    });
-  </script>
+    <template is="dom-if" if="{{authenticated}}">
+      <user-page>
+        <template is="dom-if" if="{{!mainPage}}">
+          <steps-page></steps-page>
+        </template>
+        <template is="dom-if" if="{{mainPage}}">
+          <main-page></main-page>
+        </template>
+      </user-page>
+    </template>
+    <template is="dom-if" if="{{!authenticated}}">
+      <guest-page></guest-page>
+    </template>
+    </template>
+    <script>
+      Polymer({
+        is: 'stone-castle',
+        properties: {
+          mainPage: {
+            type: Boolean,
+            value: false
+          },
+          authenticated: {
+            type: Boolean,
+            value: false
+          }
+        },
+        listeners: {
+          'change-page': '_changePage',
+          'login-click': '_dologin',
+          'logout-click': '_dologout'
+        },
+        _changePage: function() {
+          this.mainPage = true;
+        },
+        _dologin: function() {
+          this.authenticated = true;
+        },
+        _dologout: function() {
+          this.authenticated = false;
+        },
+        observers: [],
+      });
+    </script>
 </dom-module>

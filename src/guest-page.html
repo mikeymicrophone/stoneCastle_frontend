@@ -1,0 +1,69 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="shared-styles.html">
+<dom-module id="guest-page">
+  <template>
+    <style include="shared-styles">
+    :host {
+      display: block;
+    }
+    header {
+			@apply(--layout-vertical);
+			height: calc(60vh);
+      min-height: 360px;
+			padding: 0 16px;
+			backgrond-repeat: no-repeat;
+			background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/defaultHeader.jpg);
+			background-size: cover;
+			color: white;
+    }
+    .wrap{
+      @apply(--layout-horizontal);
+      @apply(--layout-center-center);
+      height: calc(100% - 66px);
+    }
+    .banner{
+      @apply(--layout-vertical);
+      @apply(--layout-center-center);
+    }
+    .sub_font{
+      text-align:center;
+      font-color:#ff;
+      font-size:16px;
+    }
+    .big_font{
+      font-color:#ff;
+      font-weight: bold;
+      font-size:26px;
+    }
+    .login_wrap{
+      @apply(--layout-horizontal);
+      @apply(--layout-end-justified);
+      padding:11px 3px 5px 5px;
+    }
+    </style>
+    <header>
+      <div class="login_wrap">
+        <paper-button raised on-tap="_login" class="white">Login</paper-button>
+      </div>
+      <div class="wrap">
+        <div class="banner">
+          <div class="big_font mBot20">What is your bank's true cost of deposit funding?</div>
+          <div class="sub_font mBot20">Use our simple tool to find your true cost of<br/>funding and analyzethe drivers that drive<br/>value and ROE</div>
+          <paper-button raised on-tap="_login" class="transparent">&nbsp;Get Started&nbsp;</paper-button>
+        </div>
+      </div>
+    </header>
+    <content></content>
+  </template>
+  <script>
+    Polymer({
+      is: 'guest-page',
+      properties: {},
+      _login: function() {
+        this.fire('login-click');
+      }
+    });
+  </script>
+</dom-module>

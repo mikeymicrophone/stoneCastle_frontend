@@ -13,165 +13,165 @@
 <link rel="import" href="expenses-component.html">
 <link rel="import" href="shared-styles.html">
 <dom-module id="steps-page">
-    <template>
-  <style include="shared-styles">
-  :host {
-    display: block;
-    padding: 20px;
-    width:960px;
-    max-width:960px;
-    margin: 0 auto;
-  }
-  .card{
-    @apply(--layout-vertical);
-    @apply(--layout-center);
-    text-align:center;
-  }
-  .holder{
-    @apply(--layout);
-    @apply(--layout-horizontal);
-    @apply(--layout-center);
-    width:70%;
-  }
-  .inner_wrap{
-    background-color: #fff;
-    @apply(--layout-vertical);
-    @apply(--layout-center-center);
-    padding:10px;
-    margin:20px 50px 20px 50px;
-    border-radius: 8px;
-    height:160px;
-    font-weight: bold;
-    font-size:20px
-  }
-  .wrapper{
-    @apply(--layout-vertical);
-    @apply(--layout-center);
-    margin: 10px;
-    border-radius: 8px;
-    background-color: #e1e1e1;
-    width:70%;
-  }
-  .chart_wrap{
-    background-color: #fff;
-    padding:10px;
-    margin:20px;
-    border-radius: 8px;
-  }
-  .slider{
-    width:80%;
-    @apply(--layout-horizontal);
-  }
-  .values{
-    @apply(--layout-flex-2);
-  }
-  .slideme{
-    @apply(--layout-flex-5);
-  }
-  .blue{
-    background-color: var(--app-main-color);
-  }
-  .grey{
-    background-color: #7d7d7d;
-    color:#fff;
-  }
-  .label{
-    background-color:#d8d8d8;
-    border:1px solid #a9a9a9;
-    margin:0px 24px 0px 24px;
-  }
-  .tit{
-    font-size:12px;
-    padding-top:6px;
-  }
-  .draw{
-    width:360px;
-    height:360px;
-    border-radius: 50%;
-    border:2px solid var(--app-main-color);
-  }
-  paper-slider{
-    width:100%;
-  }
-  </style>
-  <div class="card">
-    <div class="header_title bold">What is your bank's true cost<br />of deposit funding?</div>
-    <div class="step mTop20">
-      <div class="circle">1</div>
-      <div class="step_copy">A bank's business model is generally straight forward:<br />earn a spread between deposits and investments</div>
-    </div>
-    <div class="mTop20 holder">
-      <div class="flex inner_wrap blue">
-        <div>$</div>
-        <div>Invest Funds</div>
-        <div>(Lending)</div>
+  <template>
+    <style include="shared-styles">
+    :host {
+      display: block;
+      padding: 20px;
+      width:960px;
+      max-width:960px;
+      margin: 0 auto;
+    }
+    .card{
+      @apply(--layout-vertical);
+      @apply(--layout-center);
+      text-align:center;
+    }
+    .holder{
+      @apply(--layout);
+      @apply(--layout-horizontal);
+      @apply(--layout-center);
+      width:70%;
+    }
+    .inner_wrap{
+      background-color: #fff;
+      @apply(--layout-vertical);
+      @apply(--layout-center-center);
+      padding:10px;
+      margin:20px 50px 20px 50px;
+      border-radius: 8px;
+      height:160px;
+      font-weight: bold;
+      font-size:20px
+    }
+    .wrapper{
+      @apply(--layout-vertical);
+      @apply(--layout-center);
+      margin: 10px;
+      border-radius: 8px;
+      background-color: #e1e1e1;
+      width:70%;
+    }
+    .chart_wrap{
+      background-color: #fff;
+      padding:10px;
+      margin:20px;
+      border-radius: 8px;
+    }
+    .slider{
+      width:80%;
+      @apply(--layout-horizontal);
+    }
+    .values{
+      @apply(--layout-flex-2);
+    }
+    .slideme{
+      @apply(--layout-flex-5);
+    }
+    .blue{
+      background-color: var(--app-main-color);
+    }
+    .grey{
+      background-color: #7d7d7d;
+      color:#fff;
+    }
+    .label{
+      background-color:#d8d8d8;
+      border:1px solid #a9a9a9;
+      margin:0px 24px 0px 24px;
+    }
+    .tit{
+      font-size:12px;
+      padding-top:6px;
+    }
+    .draw{
+      width:360px;
+      height:360px;
+      border-radius: 50%;
+      border:2px solid var(--app-main-color);
+    }
+    paper-slider{
+      width:100%;
+    }
+    </style>
+    <div class="card">
+      <div class="header_title bold">What is your bank's true cost<br />of deposit funding?</div>
+      <div class="step mTop20">
+        <div class="circle">1</div>
+        <div class="step_copy">A bank's business model is generally straight forward:<br />earn a spread between deposits and investments</div>
       </div>
-      <div class="flex inner_wrap grey">
-        <div>$</div>
-        <div>Gather Funds</div>
-        <div>(Deposit)</div>
-      </div>
-    </div>
-    <div class="step mTop20">
-      <div class="circle">2</div>
-      <div class="step_copy">Allocation of non-interest expenses are important to understand<br />the true cost of funds (and similarly, gross margin on lending)</div>
-    </div>
-    <div class="draw mBot20 mTop20"></div>
-    <div class="step mTop20">
-      <div class="circle">3</div>
-      <div class="step_copy">Lets take a look at the impact of non-interest expenses on lending<br />gross margins and cost of funds.</div>
-    </div>
-    <div class="mTop20 wrapper">
-      <div class="horizontal">
-        <div class="flex chart_wrap">
-          <google-chart
-          id="chart"
-          style="width:255px;height:170px;"
-          type="column"
-          options='{"width":255,"height":170,"legend": "none","vAxis": {"minValue" : 0, "maxValue": 10}}'
-          cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
-          rows='[["Gross Yield", 3.9],["Net Yield", 7.4]]'>
-          </google-chart>
+      <div class="mTop20 holder">
+        <div class="flex inner_wrap blue">
+          <div>$</div>
+          <div>Invest Funds</div>
+          <div>(Lending)</div>
         </div>
-        <div class="flex chart_wrap">
-          <google-chart
-          id="chart"
-          style="width:255px;height:170px;"
-          type="column"
-          options='{"width":255,"height":170,"legend": "none","vAxis": {"minValue" : 0, "maxValue": 10}}'
-          cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
-          rows='[["Gross Yield", 3.9],["Net Yield", 7.4]]'>
-          </google-chart>
+        <div class="flex inner_wrap grey">
+          <div>$</div>
+          <div>Gather Funds</div>
+          <div>(Deposit)</div>
         </div>
       </div>
-      <div class="slider mBot20">
-        <div class="values bold">
-          <div class="label">35%</div>
-          <div class="tit">Lending<br/>Activity</div>
+      <div class="step mTop20">
+        <div class="circle">2</div>
+        <div class="step_copy">Allocation of non-interest expenses are important to understand<br />the true cost of funds (and similarly, gross margin on lending)</div>
+      </div>
+      <div class="draw mBot20 mTop20"></div>
+      <div class="step mTop20">
+        <div class="circle">3</div>
+        <div class="step_copy">Lets take a look at the impact of non-interest expenses on lending<br />gross margins and cost of funds.</div>
+      </div>
+      <div class="mTop20 wrapper">
+        <div class="horizontal">
+          <div class="flex chart_wrap">
+            <google-chart
+            id="chart"
+            style="width:255px;height:170px;"
+            type="column"
+            options='{"width":255,"height":170,"legend": "none","vAxis": {"minValue" : 0, "maxValue": 10}}'
+            cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
+            rows='[["Gross Yield", 3.9],["Net Yield", 7.4]]'>
+            </google-chart>
+          </div>
+          <div class="flex chart_wrap">
+            <google-chart
+            id="chart"
+            style="width:255px;height:170px;"
+            type="column"
+            options='{"width":255,"height":170,"legend": "none","vAxis": {"minValue" : 0, "maxValue": 10}}'
+            cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
+            rows='[["Gross Yield", 3.9],["Net Yield", 7.4]]'>
+            </google-chart>
+          </div>
         </div>
-        <div class="slideme"><paper-slider min="10" max="200" value="110"></paper-slider></div>
-        <div class="values bold">
-          <div class="label">65%</div>
-          <div class="tit">Lending<br/>Activity</div>
+        <div class="slider mBot20">
+          <div class="values bold">
+            <div class="label">35%</div>
+            <div class="tit">Lending<br/>Activity</div>
+          </div>
+          <div class="slideme"><paper-slider min="10" max="200" value="110"></paper-slider></div>
+          <div class="values bold">
+            <div class="label">65%</div>
+            <div class="tit">Deposit<br/>Gathering</div>
+          </div>
         </div>
       </div>
+      <br/>
+      <paper-button class="white" on-tap="_next" raised>Next</paper-button>
     </div>
-    <br/>
-    <paper-button class="white" on-tap="_next" raised>Next</paper-button>
-  </div>
   </template>
-    <script>
-        Polymer({
-            is: 'steps-page',
-            properties: {
-                selected: {
-                    type: Number,
-                    value: 0
-                }
-            },
-            _next:function(){
-              this.fire('change-page');
-            }
-        });
-    </script>
+  <script>
+    Polymer({
+      is: 'steps-page',
+      properties: {
+        selected: {
+          type: Number,
+          value: 0
+        }
+      },
+      _next:function(){
+        this.fire('change-page');
+      }
+    });
+  </script>
 </dom-module>
