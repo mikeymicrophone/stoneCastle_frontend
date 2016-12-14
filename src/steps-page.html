@@ -5,6 +5,7 @@
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/paper-slider/paper-slider.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
 <link rel="import" href="../bower_components/google-chart/google-chart.html">
 <link rel="import" href="summary-component.html">
 <link rel="import" href="summary-copy.html">
@@ -28,10 +29,22 @@
       text-align:center;
     }
     .holder{
+      position:relative;
       @apply(--layout);
       @apply(--layout-horizontal);
       @apply(--layout-center);
-      width:70%;
+      width:80%;
+    }
+    .icon{
+      position:absolute;
+      width:130px;
+      height:130px;
+      color: #7d7d7d;
+      left:306px;
+      top:46px;
+      -ms-transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
     }
     .inner_wrap{
       background-color: #fff;
@@ -101,6 +114,7 @@
         <div class="step_copy">A bank's business model is generally straight forward:<br />earn a spread between deposits and investments</div>
       </div>
       <div class="mTop20 holder">
+        <iron-icon icon="forward" class="icon"></iron-icon>
         <div class="flex inner_wrap blue">
           <div>$</div>
           <div>Invest Funds</div>
@@ -156,7 +170,7 @@
           </div>
         </div>
       </div>
-      <br/>
+      <br/><br/>
       <paper-button class="white" on-tap="_next" raised>Next</paper-button>
     </div>
   </template>
