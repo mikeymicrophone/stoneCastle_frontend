@@ -11,15 +11,14 @@
     @apply(--layout-vertical);
     padding: 10px;
     margin: 0 auto;
-    font-size:16px;
     text-align:left;
-  }
-  .horizontal{
-    @apply(--layout-horizontal);
   }
   .row{
     @apply(--layout-horizontal);
     margin:8px 0px 8px 0px;
+  }
+  .lastrow{
+    padding-top:8px
   }
   .col{
     font-size:12px;
@@ -32,7 +31,9 @@
   paper-slider{
     width:160px;
   }
-  .btop{border-top:2px solid #000;}
+  .btop{
+    border-top:2px solid #000;
+  }
   </style>
   <div><strong>Allocated Expenses</strong></div>
   <div class="row">
@@ -58,7 +59,7 @@
     <div class="col"><paper-slider min="10" max="200" value="110"></paper-slider></div>
     <div class="col">1982</div>
   </div>
-  <div class="row btop mTop20">
+  <div class="row lastrow btop mTop20">
     <div class="col">Total Salaries</div>
     <div class="col"><strong>3049</strong></div>
     <div class="col"><strong>1067</strong></div>
