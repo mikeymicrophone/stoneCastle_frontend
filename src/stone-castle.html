@@ -24,7 +24,7 @@
       </user-page>
     </template>
     <template is="dom-if" if="{{!authenticated}}">
-      <guest-page></guest-page>
+      <guest-page show-login="{{showLogin}}"></guest-page>
     </template>
     </template>
     <script>
@@ -38,21 +38,34 @@
           authenticated: {
             type: Boolean,
             value: false
+          },
+          showLogin: {
+            type: Boolean,
+            value: false
           }
         },
         listeners: {
           'change-page': '_changePage',
-          'login-click': '_dologin',
+          'show-login': '_showlogin',
+          'do-login': '_dologin',
+          'cancel-login': '_cancellogin',
           'logout-click': '_dologout'
         },
         _changePage: function() {
           this.mainPage = true;
         },
+        _showlogin: function() {
+          this.showLogin = true;
+        },
         _dologin: function() {
           this.authenticated = true;
         },
+        _cancellogin: function() {
+          this.showLogin = false;
+        },
         _dologout: function() {
           this.authenticated = false;
+          this.showLogin = false;
           this.mainPage = false;
         },
         observers: [],

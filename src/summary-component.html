@@ -8,63 +8,109 @@
     :host {
       @apply(--layout);
       @apply(--layout-vertical);
-      padding: 10px;
       text-align:left;
     }
     .data{
       @apply(--layout-horizontal);
     }
-    .values{
+    .row{
       @apply(--layout-horizontal);
-      margin:12px 0px 18px 0px;
+      font-size:12px;
     }
-    .title{
-      @apply(--layout-flex-2);
-      color: var(--app-main-color);
+    .colwide{
+      @apply(--layout-flex-5);
     }
-    .val{
+    .col{
       @apply(--layout-flex);
     }
+    .pl5{
+      padding-left:5px;
+    }
+    .flex{
+      padding:24px;
+    }
+    .lines{
+      border-top:2px solid #000;
+      border-bottom:2px solid #000;
+      padding:8px 0px 8px 0px;
+    }
     </style>
-    <div><strong>As of June 30, 2016* </strong></div>
     <div class="data">
       <div class="flex">
-        <div class="values">
-          <div class="title">Stated Margin</div>
-          <div class="val"><span class="label blue">4.10%</span></div>
+        <div class="bold">Lending Margin</div>
+        <div class="row mTop20">
+          <div class="colwide bold mBot10">Interest Income</div>
+          <div class="col bold">6,214</div>
+          <div class="col bold">4.31%</div>
         </div>
-        <div class="values">
-          <div class="title">Adj. Gross Margin</div>
-          <div class="val"><span class="label blue">3.26%</span></div>
+        <div class="row mBot10">
+          <div class="colwide pl5">Less: Provisions for Losses</div>
+          <div class="col">(128)</div>
+          <div class="col">-0.07%</div>
         </div>
-        <div class="values">
-          <div class="title">Interesting Bearing</div>
-          <div class="val"><span class="label blue">1.79%</span></div>
+        <div class="row mBot10">
+          <div class="colwide pl5">Free Income</div>
+          <div class="col">879</div>
+          <div class="col">-0.07%</div>
         </div>
-        <div class="values">
-          <div class="title">Blended Deposit</div>
-          <div class="val"><span class="label blue">1.65%</span></div>
+        <div class="row mBot10">
+          <div class="colwide bold">Allocated Salaries</div>
+          <div class="col">(1,407)</div>
+          <div class="col">-1.17%</div>
+        </div>
+        <div class="row mBot10">
+          <div class="colwide bold">Allocated Other Expenses</div>
+          <div class="col">655</div>
+          <div class="col">-0.78%</div>
+        </div>
+        <div class="row lines mBot10">
+          <div class="colwide bold">Gross Yield</div>
+          <div class="col bold">4,855</div>
+          <div class="col bold">3.44%</div>
+        </div>
+        <div class="row">
+          <div class="colwide bold">Total Loans (Less cash)</div>
+          <div class="col bold">180,855</div>
+          <div class="col bold"></div>
         </div>
       </div>
       <div class="flex">
-        <google-chart
-        id="chart"
-        style="width:260px;height:170px;"
-        type="column"
-        options='{"width":260,"height":170,"legend": "none","vAxis": {"minValue" : 0, "maxValue": 10}}'
-        cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
-        rows='[["Gross Yield", 3.9],["Net Yield", 7.4]]'>
-        </google-chart>
-      </div>
-      <div class="flex">
-        <google-chart
-        id="chart"
-        style="width:260px;height:170px;"
-        type="column"
-        options='{"width":260,"height":170,"legend": "none", "vAxis": {"minValue" : 0, "maxValue": 10}}'
-        cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
-        rows='[["Interest Paid", 2.0],["True Cost of Funds", 5.6]]'>
-        </google-chart>
+        <div class="bold">Deposit Cost</div>
+        <div class="row mTop20 mBot10">
+          <div class="colwide bold">Interest Expense</div>
+          <div class="col bold">585</div>
+          <div class="col bold">0.31%</div>
+        </div>
+        <div class="row mBot10">
+          <div class="colwide pl5">Less: Deposit Acct Service Fee</div>
+          <div class="col">(323)</div>
+          <div class="col">-0.17%</div>
+        </div>
+        <div class="row mBot10">
+          <div class="colwide pl5">&nbsp;</div>
+          <div class="col"></div>
+          <div class="col"></div>
+        </div>
+        <div class="row mBot10">
+          <div class="colwide bold">Allocated Salaries</div>
+          <div class="col">2,407</div>
+          <div class="col">1.17%</div>
+        </div>
+        <div class="row mBot10">
+          <div class="colwide bold">Allocated Other Expenses</div>
+          <div class="col">1,455</div>
+          <div class="col">0.78%</div>
+        </div>
+        <div class="row lines mBot10">
+          <div class="colwide bold">Gross Yield</div>
+          <div class="col bold">4,455</div>
+          <div class="col bold">2.22%</div>
+        </div>
+        <div class="row">
+          <div class="colwide bold">Total Deposit (Less cash)</div>
+          <div class="col bold">140,855</div>
+          <div class="col bold"></div>
+        </div>
       </div>
     </div>
   </template>

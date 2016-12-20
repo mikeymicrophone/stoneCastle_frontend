@@ -1,16 +1,174 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-slider/paper-slider.html">
 <link rel="import" href="shared-styles.html">
 <dom-module id="expenses-component">
   <template>
     <style include="shared-styles">
     :host {
-      display: flex;
-      padding: 10px;
+      @apply(--layout);
+      @apply(--layout-vertical);
       margin: 0 auto;
+      text-align:left;
+      padding:24px;
+    }
+    .section{
+      font-size:13px !important;
+    }
+    .row{
+      @apply(--layout-horizontal);
+      margin:8px 0px 8px 0px;
+      font-size:12px;
+    }
+    .lastrow{
+      padding-top:8px
+    }
+    .col{
+      @apply(--layout-flex);
+      @apply(--layout-horizontal);
+      @apply(--layout-center-center);
+      text-align:right;
+    }
+    .col2{
+      @apply(--layout-horizontal);
+      @apply(--layout-center-center);
+      @apply(--layout-flex-2);
+    }
+    .title{
+      width:210px;
+    }
+    input{
+      width:34px;
+    }
+    paper-slider{
+      width:100%;
+      --paper-slider-height:12px;
+    }
+    .btop{
+      border-top:2px solid #000;
+      padding-top:8px;
     }
     </style>
-    <div>expenses</div>
+    <div class="bold">Allocated Expenses</div>
+    <div class="row">
+      <div class="title"></div>
+      <div class="col"></div>
+      <div class="col">Total Expenses</div>
+      <div class="col">Lending & Investing</div>
+      <div class="col2"></div>
+      <div class="col">Deposit Funding</div>
+    </div>
+    <div class="row">
+      <div class="bold title">Premises and Equipment Expense</div>
+      <div class="col"></div>
+      <div class="col"><input type="text" value="608"/></div>
+      <div class="col">213</div>
+      <div class="col2">
+        <span class="small_font bold">12%</span>
+        <paper-slider pin min="0" max="100" value="50"></paper-slider>
+        <span class="small_font bold">35%</span>
+      </div>
+      <div class="col">395</div>
+    </div>
+    <div class="row">
+      <div class="bold title">Amortization and Godwill</div>
+      <div class="col"></div>
+      <div class="col">-</div>
+      <div class="col">-</div>
+      <div class="col2"></div>
+      <div class="col">-</div>
+    </div>
+    <div class="row bold mTop20 section bluefont">
+      Other non-interest Expense
+    </div>
+    <div class="row mTop20">
+      <div class="bold title">FDIC Deposit Insurance</div>
+      <div class="col"><input type="text"  value="100"/></div>
+      <div class="col">144</div>
+      <div class="col"></div>
+      <div class="col2"></div>
+      <div class="col">1144</div>
+    </div>
+    <div class="row mTop20">
+      <div class="bold title">ATM Interchange</div>
+      <div class="col"></div>
+      <div class="col"><input type="text" value="67"/></div>
+      <div class="col"></div>
+      <div class="col2"></div>
+      <div class="col">180</div>
+    </div>
+    <div class="row mTop20">
+      <div class="bold title">Data Processing Expenses (core)</div>
+      <div class="col"></div>
+      <div class="col"><input type="text"/></div>
+      <div class="col">90</div>
+      <div class="col2">
+        <span class="small_font bold">12%</span>
+        <paper-slider pin min="0" max="100" value="50"></paper-slider>
+        <span class="small_font bold">43%</span>
+      </div>
+      <div class="col">360</div>
+    </div>
+    <div class="row mTop20">
+      <div class="bold title">Consulting And Advisory</div>
+      <div class="col"></div>
+      <div class="col"><input type="text" value="70"/></div>
+      <div class="col">420</div>
+      <div class="col2"></div>
+      <div class="col">100</div>
+    </div>
+    <div class="row mTop20">
+      <div class="bold title">Accounting Audit</div>
+      <div class="col"></div>
+      <div class="col"><input type="text" value="340"/></div>
+      <div class="col">1,420</div>
+      <div class="col2"></div>
+      <div class="col">40</div>
+    </div>
+    <div class="row mTop20">
+      <div class="bold title">Legal and Regulatory Fees</div>
+      <div class="col"></div>
+      <div class="col"><input type="text" value="100"/></div>
+      <div class="col">1,670</div>
+      <div class="col2">
+        <span class="small_font bold">21%</span>
+        <paper-slider pin min="0" max="100" value="50"></paper-slider>
+        <span class="small_font bold">32%</span>
+      </div>
+      <div class="col">100</div>
+    </div>
+    <div class="row mTop20">
+      <div class="bold title">Advertising</div>
+      <div class="col"></div>
+      <div class="col"><input type="text" value="678" /></div>
+      <div class="col">1,670</div>
+      <div class="col2">
+        <span class="small_font bold">18%</span>
+        <paper-slider pin min="0" max="100" value="50"></paper-slider>
+        <span class="small_font bold">11%</span>
+      </div>
+      <div class="col">100</div>
+    </div>
+    <div class="row mTop20">
+      <div class="bold title">Others</div>
+      <div class="col"></div>
+      <div class="col">3,049</div>
+      <div class="col">1,670</div>
+      <div class="col2">
+        <span class="small_font bold">16%</span>
+        <paper-slider pin min="0" max="100" value="50"></paper-slider>
+        <span class="small_font bold">2%</span>
+      </div>
+      <div class="col">1,100</div>
+    </div>
+    <div class="row mTop20 btop">
+      <div class="bold title">Total Other Expenses</div>
+      <div class="col"></div>
+      <div class="col bold">3,049</div>
+      <div class="col bold">1,670</div>
+      <div class="col2 center"></div>
+      <div class="col bold">1,500</div>
+    </div>
   </template>
   <script>
     Polymer({

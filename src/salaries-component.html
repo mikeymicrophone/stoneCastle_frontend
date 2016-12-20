@@ -9,9 +9,8 @@
     :host {
       @apply(--layout);
       @apply(--layout-vertical);
-      padding: 10px;
-      margin: 0 auto;
       text-align:left;
+      padding:24px;
     }
     .row{
       @apply(--layout-horizontal);
@@ -23,32 +22,42 @@
     .col{
       font-size:12px;
       @apply(--layout-flex);
+      @apply(--layout-horizontal);
+      @apply(--layout-center-center);
       text-align:right;
     }
+    .col2{
+      @apply(--layout-horizontal);
+      @apply(--layout-center-center);
+      @apply(--layout-flex-2);
+    }
     input{
-      width:80px;
+      width:34px;
     }
     paper-slider{
-      width:160px;
+      width:100%;
+      --paper-slider-height:12px;
     }
     .btop{
       border-top:2px solid #000;
     }
     </style>
-    <div><strong>Allocated Expenses</strong></div>
+    <div class="bold">Allocated Expenses</div>
     <div class="row">
       <div class="col"></div>
       <div class="col">Total Expenses</div>
       <div class="col">Lending & Investing</div>
-      <div class="col"></div>
+      <div class="col2"></div>
       <div class="col">Deposit Funding</div>
     </div>
     <div class="row">
       <div class="col"><strong>Senior Management</strong></div>
       <div class="col"><input type="text"/></div>
       <div class="col">425</div>
-      <div class="col">
-        <paper-slider min="10" max="200" value="110"></paper-slider>
+      <div class="col2 center">
+        <span class="small_font bold">35%</span>
+        <paper-slider pin min="0" max="100" value="50"></paper-slider>
+        <span class="small_font bold">35%</span>
       </div>
       <div class="col">4.25</div>
     </div>
@@ -56,14 +65,18 @@
       <div class="col">All Other Salaries & Benefits</div>
       <div class="col">3049</div>
       <div class="col">1067</div>
-      <div class="col"><paper-slider min="10" max="200" value="110"></paper-slider></div>
+      <div class="col2 center">
+        <span class="small_font bold">11%</span>
+        <paper-slider pin min="0" max="100" value="50"></paper-slider>
+        <span class="small_font bold">35%</span>
+      </div>
       <div class="col">1982</div>
     </div>
     <div class="row lastrow btop mTop20">
       <div class="col">Total Salaries</div>
       <div class="col"><strong>3049</strong></div>
       <div class="col"><strong>1067</strong></div>
-      <div class="col"></div>
+      <div class="col2"></div>
       <div class="col"><strong>1982</strong></div>
     </div>
   </template>

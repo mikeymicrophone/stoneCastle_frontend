@@ -10,42 +10,71 @@
       @apply(--layout-center);
     }
     .wrapper{
-      @apply(--layout);
-      @apply(--layout-horizontal);
-      @apply(--layout-center);
       margin: 10px;
       border-radius: 8px;
       background-color: #e1e1e1;
-      width:100%;
+      width:86%;
     }
     .chart_wrap{
       background-color: #fff;
       padding:10px;
-      margin:10px;
+      margin:10px 20px 20px 20px;
       border-radius: 8px;
+    }
+    .purple{
+      width:28px;
+      height:18px;
+      margin-right:10px;
+      background-color: #645784;
+    }
+    .green{
+      width:28px;
+      height:18px;
+      margin-right:10px;
+      background-color: #79948a;
+    }
+    .legend{
+      @apply(--layout-horizontal);
+      padding:10px 0px 0px 28px;
     }
     </style>
     <div class="mTop20 bold mBot20">True Cost of Funds Analysis for First Bank of Niagara</div>
     <div class="mTop20 wrapper">
-      <div class="flex chart_wrap">
-        <google-chart
-        id="chart"
-        style="width:360px;height:170px;"
-        type="column"
-        options='{"width":360,"height":170,"legend": "none","vAxis": {"minValue" : 0, "maxValue": 10}}'
-        cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
-        rows='[["Gross Yield", 3.9],["Net Yield", 7.4]]'>
-        </google-chart>
+      <div class="legend small_font">
+        <div class="green">&nbsp;</div>
+        <div class="bold">
+          Allocated Salaries
+        </div>
       </div>
-      <div class="flex chart_wrap">
-        <google-chart
-        id="chart"
-        style="width:360px;height:170px;"
-        type="column"
-        options='{"width":360,"height":170,"legend": "none","vAxis": {"minValue" : 0, "maxValue": 10}}'
-        cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
-        rows='[["Gross Yield", 3.9],["Net Yield", 7.4]]'>
-        </google-chart>
+      <div class="legend small_font">
+        <div class="purple">&nbsp;</div>
+        <div class="bold">
+          Allocated other Expenses
+        </div>
+      </div>
+      <div class="horizontal">
+        <div class="flex chart_wrap">
+          <google-chart
+            type="candlestick"
+            style="width:285px;height:170px;"
+            options='{"series":{"0":{"color":"#28628e"}},"chartArea": {"width": "100%"},"width":285,"height":170,"legend": "none","vAxis": {"scaleType":"log","gridlines" : {"color":"transparent"},"textPosition":"none"}}'
+            data='[["Day", "low", "start", "end", "high"],
+                   ["Gross Yield", 28, 28, 77, 77],
+                   ["Origination & Servicing \n Expenses", 55, 55, 77, 77],
+                   ["Net Yield", 38, 38, 55, 55]]'>
+          </google-chart>
+        </div>
+        <div class="flex chart_wrap">
+          <google-chart
+            type="candlestick"
+            style="width:285px;height:170px;"
+            options='{"series":{"0":{"color":"#67707a"}},"chartArea": {"width": "100%"},"width":285,"height":170,"legend": "none","vAxis": {"scaleType":"log","gridlines" : {"color":"transparent"},"textPosition":"none"}}'
+            data='[["Day", "low", "start", "end", "high", {"type":"string", "role":"annotation"}],
+                   ["Interest paid", 28, 28, 77, 77,"gold"],
+                   ["Cost of Servicing \n Deposit", 55, 55, 77, 77,"gold"],
+                   ["True Cost of Funds", 38, 38, 55, 55,"gold"]]'>
+          </google-chart>
+        </div>
       </div>
     </div>
   </template>

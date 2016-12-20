@@ -1,0 +1,105 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="my-icons.html">
+<link rel="import" href="shared-styles.html">
+<dom-module id="welcome-message">
+  <template>
+    <style include="shared-styles">
+    :host {
+      display:block;
+      text-align: center;
+      padding: 0px 20px 20px 20px;
+      margin: 0 auto;
+      font-size:16px;
+    }
+    .card{
+      @apply(--layout-vertical);
+      padding: 0px !important;
+      width:320px;
+      color: #494949;
+    }
+    .wrapper{
+      @apply(--layout-vertical);
+      padding:0px 25px 20px 25px;
+    }
+    .close{
+      @apply(--layout-horizontal);
+      @apply(--layout-end-justified);
+    }
+    .grey{
+      color:#9e9e9e;
+    }
+    paper-input{
+      text-align: left;
+    }
+    iron-icon{
+      padding-right:8px;
+    }
+    .info{
+      font-size:15px;
+    }
+    .recover{
+      display:block;
+      font-size:12px;
+      text-align:left;
+      padding-bottom:10px;
+    }
+    .btnwrap{
+      @apply(--layout-vertical);
+      @apply(--layout-center-center);
+    }
+    paper-button{
+      width:120px;
+    }
+    .login{
+      padding:8px 0px 0px 20px;
+    }
+    paper-icon-button{
+      color:#b00000;
+    }
+    </style>
+    <template is="dom-if" if="{{!showLogin}}">
+      <div class="big_font bold mBot20 white">What is your bank's true cost of deposit funding?</div>
+      <div class="sub_font mBot20 center white">Use our simple tool to find your true cost of<br/>funding and analyzethe drivers that drive<br/>value and ROE</div>
+      <paper-button raised class="transparent">&nbsp;Get Started&nbsp;</paper-button>
+    </template>
+    <template is="dom-if" if="{{showLogin}}">
+      <div class="card">
+        <div class="close">
+          <div class="login bold bluefont medium_font flex">Login</div>
+          <paper-icon-button icon="icons:close" on-tap="_cancellogin"></paper-icon-button>
+        </div>
+        <div class="wrapper">
+        <div class="mTop10 info grey">If you have any questions or need help, please contact us at 866-343-5516 or <span class="bluefont">help@ficaaccount.com</span></div>
+        <paper-input class="bluefont" label="Username (FDC Certificate)">
+        </paper-input>
+        <paper-input label="password" type="Password"></paper-input>
+        <div class="grey recover mTop10">
+          * Don't have a password or lost your password?<br/>&nbsp;&nbsp;Contact us at help@ficaacount.com
+        </div>
+        <div class="btnwrap mTop10">
+          <paper-button raised class="white" on-tap="_dologin">&nbsp;Next&nbsp;</paper-button>
+        </div>
+      </div>
+      </div>
+    </template>
+  </template>
+  <script>
+    Polymer({
+      is: 'welcome-message',
+      properties: {
+        showLogin: Boolean,
+      },
+      _dologin:function(){
+        this.fire('do-login');
+      },
+      _cancellogin:function(){
+        this.fire('cancel-login');
+      }
+    });
+  </script>
+</dom-module>

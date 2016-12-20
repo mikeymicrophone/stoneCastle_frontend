@@ -2,6 +2,10 @@
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tab.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animatable.html">
+<link rel="import" href="../bower_components/neon-animation/animations/scale-down-animation.html">
+<link rel="import" href="../bower_components/neon-animation/animations/scale-up-animation.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="summary-component.html">
 <link rel="import" href="summary-copy.html">
@@ -34,12 +38,19 @@
       text-align:left;
     }
     paper-tabs {
-      color: var(--app-main-color);
       border:1px solid var(--app-main-color);
       border-bottom:0px;
+      background-color: #fff;
       border-radius: 10px 10px 0px 0px;
-      --paper-tabs-selection-bar:{height:0px;}
+      --paper-tabs-selection-bar:{height:80px;}
+      --paper-tabs-selection-bar-color: var(--app-main-color);
       color: #31f0ef;
+    }
+    paper-tab{
+      color: var(--app-main-color);
+      --paper-tab-content:{color:#fff;}
+      --paper-tab-content-unselected:{color:var(--app-main-color)}
+      --paper-tab-ink: #000;
     }
     iron-pages{
       width:90%;
@@ -49,15 +60,28 @@
     iron-pages.lower{
       border:1px solid var(--app-main-color);
     }
+    .anim_wrap{
+      position:relative;
+      width:800px;
+      height:360px;
+    }
     </style>
     <div class="card">
       <div class="header_title bold">What is your bank's true cost<br />of deposit funding?</div>
-      <iron-pages selected="{{selected}}">
+      <div class="anim_wrap">
+      <neon-animated-pages selected="{{selected}}" entry-animation="scale-up-animation" exit-animation="scale-down-animation">
+        <neon-animatable>
         <summary-copy></summary-copy>
+        </neon-animatable>
+        <neon-animatable>
         <salaries-copy></salaries-copy>
+        </neon-animatable>
+        <neon-animatable>
         <salaries-copy></salaries-copy>
-      </iron-pages>
-      <paper-tabs class="mTop20" selected="{{selected}}">
+        </neon-animatable>
+      </neon-animated-pages>
+      </div>
+      <paper-tabs no-slide class="mTop20" selected="{{selected}}">
         <paper-tab>Summary</paper-tab>
         <paper-tab>Salaries</paper-tab>
         <paper-tab>Other Expenses</paper-tab>
@@ -74,8 +98,8 @@
       is: 'main-page',
       properties: {
         selected: {
-            type: Number,
-            value: 0
+          type: Number,
+          value: 0
         }
       }
     });
